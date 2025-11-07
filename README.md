@@ -56,14 +56,16 @@ Busque en internet el repositorio central de ["maven"](https://mvnrepository.com
 
 Busque el artefacto JUnit y entre a la versión más nueva.
 
-![](img/repo.png)
+![Captura de pantalla del repositorio Maven](img/repo.png)
 
-#### ⚠️ Nota importante 
+#### ⚠️ Nota sobre ubicación de archivos
+
 Ingresar directamente a ["2. Junit"](https://mvnrepository.com/artifact/junit/junit).  
 
 Ingrese a la pestaña de Maven y haga click en el texto de la dependencia para copiarlo al portapapeles.
 
 Edite el archivo `pom.xml` y realice las siguientes actualizaciones:
+
 - Agregue/Reemplace la dependencia copiada a la sección de dependencias.
 - Cambie la versión del compilador de Java a la versión 8 (o el de su computador), agregando la sección `properties` antes de la sección de dependencias:
 
@@ -105,10 +107,13 @@ Edite el archivo `pom.xml` y realice las siguientes actualizaciones:
 ---
 
 ### COMPILAR Y EJECUTAR
-Ejecute los comandos de Maven, 
+
+Ejecute los comandos de Maven,
+
 ```bash
 mvn clean package
 ```
+
 para compilar el proyecto y verificar que el proyecto se creó correctamente y los cambios realizados al archivo pom no generan inconvenientes.
 
 Ejecute el comando para ejecutar las pruebas unitarias de un proyecto desde Maven y ejecútelo sobre el proyecto.
@@ -128,6 +133,7 @@ Se va a crear un proyecto base siguiendo la estructura de **Arquitectura Limpia 
 Se usará la clase *Person* que se describe más adelante. El servicio de la registraduría permitirá registrar personas que sean votantes.
 
 ### REQUERIMIENTOS
+
 - Solo se registrarán votantes válidos.
 - Solo se permite una inscripción por número de documento.
 
@@ -139,7 +145,7 @@ Se usará la clase *Person* que se describe más adelante. El servicio de la reg
 
 ### Estructura propuesta (monomódulo por paquetes)
 
-```
+```gherkin
 src/
  ├─ main/java/edu/unisabana/tyvs/
  │   ├─ domain/
@@ -220,14 +226,17 @@ public class Registry {
 El ciclo TDD: Red → Green → Refactor es la práctica central de Desarrollo Guiado por Pruebas (Test-Driven Development) y consiste en tres pasos cortos y repetitivos:
 
 ### 1. RED (Rojo)
+
 - Escribes una prueba unitaria nueva que describe el comportamiento que deseas.
 - Como aún no has implementado el código (o la lógica está incompleta), la prueba falla.
 
 ### 2. GREEN (Verde)
+
 - Escribes la implementación mínima para que la prueba pase.
 - No importa si el código no es elegante todavía, lo importante es que sea funcional.
 
 ### 3. REFACTOR (Refactorizar)
+
 - Una vez todas las pruebas están en verde, mejoras el código:
   - Limpias duplicación.
   - Renombras variables o métodos.
@@ -244,12 +253,15 @@ Adicional a esta practica de creacion de pruebas vamos a seguir el diseño de pr
 En el diseño de pruebas unitarias se recomienda estructurar cada método de prueba siguiendo el patrón AAA:
 
 ### Arrange (Preparar)
+
 - Se configuran los datos, objetos y estado inicial necesarios para la prueba.
 
 ### Act (Actuar)
+
 - Se ejecuta la acción que queremos probar.
 
 ### Assert (Afirmar)
+
 - Se verifican los resultados obtenidos frente a lo esperado.
 
 #### ⚠️ Nota importante
@@ -298,7 +310,8 @@ public class RegistryTest {
 
 ```
 
-### 2. GREEN: implementación mínima
+### 2. GREEN: implementación mínima para segunda prueba
+
 Ya devuelve `VALID`, la prueba pasa.
 
 ---
@@ -310,11 +323,13 @@ Recuerde ejecutar todos los comandos Maven desde la carpeta **raíz del proyecto
 ---
 
 Para correr las pruebas utilice:
+
 ```sh
 mvn clean compile
 ```
 
 También puede utilizar:
+
 ```sh
 mvn clean test
 ```
@@ -350,6 +365,7 @@ Pero hagamos otra prueba ...
 ```
 
 ### 2. GREEN: implementación mínima
+
 Agregue este código a su clase `Registry.java` para ir complementando y haciendo mas robusta su clase.
 
 ```java
@@ -359,6 +375,7 @@ if (!p.isAlive()) return RegisterResult.DEAD;
 ```
 
 ### 3. Refactor
+
 Refactorizando el código.
 
 ```java
@@ -381,6 +398,7 @@ public class Registry {
     }
 }
 ```
+
 y
 
 ```java
@@ -407,7 +425,7 @@ Para `registerVoter(Person)` el espacio de entradas se define por los atributos 
   - Clase válida: `18 ≤ edad ≤ 120` → contribuye a `VALID` si demás reglas pasan (límites: `18`, `120`).
   - Clase inválida: `edad > 120` → `INVALID_AGE` (límite: `121`).
 
-- Estado de vida 
+- Estado de vida
   - `alive = false` → `DEAD` (independiente de la edad).
   - `alive = true` → continúa evaluación de edad/duplicados.
 
@@ -421,14 +439,15 @@ Para `registerVoter(Person)` el espacio de entradas se define por los atributos 
 
 ---
 
-# Guía avanzada de Pruebas Unitarias
+## Guía avanzada de Pruebas Unitarias
 
 Las pruebas unitarias son la base de un plan de pruebas exhaustivo. Para alinearnos con las buenas prácticas internacionales y los resultados de aprendizaje del curso, además de implementar las pruebas básicas, se deben considerar los siguientes aspectos:
 
 ---
 
-## 1. Planificación de las pruebas
-Define una **matriz de clases de equivalencia y valores límite** para `registerVoter`. 
+### 1. Planificación de las pruebas
+
+Define una **matriz de clases de equivalencia y valores límite** para `registerVoter`.
 
 Ejemplo:
 
@@ -442,7 +461,7 @@ Ejemplo:
 
 ---
 
-## 2. Cobertura de código
+### 2. Cobertura de código
 
 Agrega **JaCoCo** para medir cobertura.  
 Este plugin debe incluirse dentro de la sección `<build><plugins> ... </plugins></build>` del archivo `pom.xml`.
@@ -487,6 +506,7 @@ Revisa el archivo `target/site/jacoco/index.html`.
 ---
 
 ## 3. Robustez de las pruebas
+
 La escritura de pruebas con **BDD (Behavior-Driven Development)** busca que los casos de prueba se expresen en un lenguaje cercano al negocio, entendible tanto para desarrolladores como para usuarios y analistas. A diferencia de las pruebas unitarias tradicionales, que se centran en métodos o clases, en BDD se describe el **comportamiento esperado del sistema** usando una narrativa estructurada en términos de Given–When–Then (Dado–Cuando–Entonces). Esto facilita la comunicación entre los diferentes actores de un proyecto, asegura que las pruebas estén alineadas con los requisitos funcionales y promueve que el código se construya a partir de la especificación del comportamiento deseado. En el marco de esta asignatura, BDD aporta claridad al proceso de validación, ya que conecta directamente las reglas de negocio con la verificación automatizada, fortaleciendo la robustez y la trazabilidad de las pruebas.
 
 Ejemplo:
@@ -506,21 +526,22 @@ La siguiente tabla combina los nombres de los tests unitarios (estilo técnico e
 
 | Nombre del test (JUnit) | Escenario BDD (Given–When–Then) |
 |--------------------------|----------------------------------|
-| **shouldReturnInvalidWhenPersonIsNull** | **Given** la persona es `null` <br> **When** intento registrarla <br> **Then** el resultado debe ser `INVALID` |
-| **shouldRejectWhenIdIsZeroOrNegative** | **Given** la persona tiene `id = 0` (o `id = -5`), edad 25 y está viva <br> **When** intento registrarla <br> **Then** el resultado debe ser `INVALID` |
-| **shouldRejectUnderageAt17** | **Given** la persona tiene 17 años, está viva y su id es válido <br> **When** intento registrarla <br> **Then** el resultado debe ser `UNDERAGE` |
-| **shouldAcceptAdultAt18** | **Given** la persona tiene 18 años, está viva y su id es válido <br> **When** intento registrarla <br> **Then** el resultado debe ser `VALID` |
-| **shouldAcceptMaxAge120** | **Given** la persona tiene 120 años, está viva y su id es válido <br> **When** intento registrarla <br> **Then** el resultado debe ser `VALID` |
-| **shouldRejectInvalidAgeOver120** | **Given** la persona tiene 121 años, está viva y su id es válido <br> **When** intento registrarla <br> **Then** el resultado debe ser `INVALID_AGE` |
+| **shouldReturnInvalidWhenPersonIsNull** | **Given** la persona es `null`; **When** intento registrarla; **Then** el resultado debe ser `INVALID` |
+| **shouldRejectWhenIdIsZeroOrNegative** | **Given** la persona tiene `id = 0` (o `id = -5`), edad 25 y está viva; **When** intento registrarla; **Then** el resultado debe ser `INVALID` |
+| **shouldRejectUnderageAt17** | **Given** la persona tiene 17 años, está viva y su id es válido; **When** intento registrarla; **Then** el resultado debe ser `UNDERAGE` |
+| **shouldAcceptAdultAt18** | **Given** la persona tiene 18 años, está viva y su id es válido; **When** intento registrarla; **Then** el resultado debe ser `VALID` |
+| **shouldAcceptMaxAge120** | **Given** la persona tiene 120 años, está viva y su id es válido; **When** intento registrarla; **Then** el resultado debe ser `VALID` |
+| **shouldRejectInvalidAgeOver120** | **Given** la persona tiene 121 años, está viva y su id es válido; **When** intento registrarla; **Then** el resultado debe ser `INVALID_AGE` |
 
 > **Regla**: todas las pruebas unitarias se enfocan en **dominio**.
 
 ---
 
 ## 4. Gestión de defectos
+
 Crea un archivo `defectos.md` para documentar fallos:
 
-```
+```gherkin
 ### Defecto 01
 - Caso: edad -1
 - Esperado: INVALID_AGE
@@ -532,6 +553,7 @@ Crea un archivo `defectos.md` para documentar fallos:
 ---
 
 ## 5. Automatización e integración (Opcional)
+
 - Ejecuta las pruebas unitarias en cada commit con CI (GitHub Actions, Jenkins, GitLab CI).  
 - Rechaza merges si `mvn test` falla.
 
@@ -540,16 +562,19 @@ Crea un archivo `defectos.md` para documentar fallos:
 ## PARA ENTREGAR CON ESTE TALLER
 
 ### 1) Repositorio
+
 - **Repositorio Git** con el proyecto y **URL de acceso público** (o invitación).
 - Archivo **`.gitignore`** (excluir `target/`, archivos del IDE, etc.).
 - Archivo **`integrantes.txt`** o sección en el README con nombres completos.
 - **Rama principal compilable**: `mvn clean test` sin pasos manuales adicionales.
 
 ### 2) Documentación en Wiki (obligatoria)
+
 > Toda la documentación del taller se entrega en el **Wiki del mismo repositorio**.  
 > No es necesario PDF. El Wiki es el documento oficial de entrega.
 
 Estructura mínima sugerida del Wiki:
+
 - **Inicio**: resumen del dominio, alcance del taller y equipo.
 - **TDD (Red → Green → Refactor)**: al menos 3 iteraciones mas con breve “historia TDD”.
 - **Patrón AAA**: ejemplo de test con Arrange–Act–Assert y pautas usadas.
@@ -560,17 +585,20 @@ Estructura mínima sugerida del Wiki:
 Incluye **enlaces al código** (clases y tests) dentro de cada sección del Wiki.
 
 ### 3) Pruebas unitarias (dominio puro)
+
 - Al menos **5 clases de equivalencia** cubiertas y **escenarios BDD** correspondientes.
 - Todas las pruebas escritas con **AAA (Arrange–Act–Assert)**.
 - Nomenclatura clara de métodos de prueba (`should…When…()`).
 - Tests en `src/test/java` **mismo paquete** que la clase probada.
 
 ### 4) Cobertura (JaCoCo)
+
 - Reporte **JaCoCo** generado en `target/site/jacoco/index.html`.
 - **≥ 80%** cobertura **global** (y ≥ 80% en el paquete de dominio).
 - Adjuntar **capturas** en el Wiki y comentar brevemente qué líneas quedaron sin cubrir y por qué.
 
 ### 5) Evidencia de TDD
+
 - Sección **“Historia TDD”** en el Wiki con 3+ ciclos:
   - **Rojo**: prueba nueva que falla.
   - **Verde**: cambio mínimo para que pase.
@@ -581,19 +609,23 @@ Incluye **enlaces al código** (clases y tests) dentro de cada sección del Wiki
   - `refactor: extract constants (REFACTOR)`
 
 ### 6) Matriz de pruebas
+
 - Tabla con **clases de equivalencia** y **valores límite**:
   - **Entrada representativa**, **Resultado esperado**, **test que lo cubre** (nombre del método).
 
 ### 7) Gestión de defectos
+
 - Archivo **`defectos.md`**:
   - Al menos **1 defecto** (real o simulado): caso, esperado vs. obtenido, causa probable, estado (Abierto/Cerrado).
 
 ### 8) Calidad del código
+
 - Constantes extraídas (ej.: `MIN_AGE`, `MAX_AGE`).
 - Sin **código muerto** ni duplicación obvia.
 - Nombrado autoexplicativo y comentarios mínimos pero útiles.
 
 ### 9) Reflexión final (en el Wiki)
+
 - ¿Qué escenarios **no** se cubrieron y por qué?
 - ¿Qué defectos reales detectaron los tests?
 - ¿Cómo **mejorarías** la clase `Registry` para facilitar su prueba?
@@ -685,7 +717,8 @@ El objetivo es que, una vez comprendido el flujo de trabajo, puedan **replicar e
 ## Conclusión
 
 En conjunto, estas prácticas permiten:  
-- Desarrollar código guiado por reglas de negocio (**TDD + BDD**).  
+
+- Desarrollar código guiado por reglas de negocio (**TDD + BDD**).
 - Escribir pruebas claras y mantenibles (**AAA**).  
 - Diseñar casos de prueba robustos que cubren diferentes escenarios (**clases de equivalencia y valores límite**).  
 
@@ -693,7 +726,8 @@ Esto fortalece la **calidad del software**, mejora la **trazabilidad de los requ
 
 ---
 
-# Recursos recomendados
-- *The Art of Software Testing* – Myers, 2011.  
-- *Testing Computer Software* – Kaner, 1999.  
-- *Effective Unit Testing* – Lasse Koskela, 2013.  
+## Recursos recomendados
+
+- *The Art of Software Testing* – Myers, 2011.
+- *Testing Computer Software* – Kaner, 1999.
+- *Effective Unit Testing* – Lasse Koskela, 2013.
