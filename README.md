@@ -1,4 +1,4 @@
-# Taller de TDD - Pruebas Unitarias
+# Taller de Pruebas Unitarias - Desarrollo dirigido por pruebas (TDD)
 
 Este taller adapta el enfoque clásico de **TDD** (Red → Green → Refactor) a una **Arquitectura Limpia (Clean Architecture)**. El objetivo es que las **pruebas unitarias** garanticen la calidad del **dominio** sin acoplarse a frameworks o infraestructura.
 
@@ -647,8 +647,8 @@ Incluye **enlaces al código** (clases y tests) dentro de cada sección del Wiki
 | Rango de puntaje | Desempeño                                                |
 | ---------------- | -------------------------------------------------------- |
 | 45 – 50          | Excelente dominio técnico y metodológico.                |
-| 38 – 44          | Buen trabajo con documentación o cobertura parcial.      |
-| 30 – 37          | Cumple con lo básico pero sin profundidad.               |
+| 35 – 44          | Buen trabajo con documentación o cobertura parcial.      |
+| 30 – 34          | Cumple con lo básico pero sin profundidad.               |
 | < 30             | No cumple con los criterios mínimos del taller/proyecto. |
 
 ---
@@ -731,3 +731,33 @@ Esto fortalece la **calidad del software**, mejora la **trazabilidad de los requ
 - *The Art of Software Testing* – Myers, 2011.
 - *Testing Computer Software* – Kaner, 1999.
 - *Effective Unit Testing* – Lasse Koskela, 2013.
+
+---
+
+## Créditos y uso académico
+
+**Autor:** César Augusto Vega Fernández
+**Curso:** Testing y Validación de Software
+**Programa:** Maestría en Ingeniería de Software – Universidad de La Sabana
+**Año:** 2025
+
+Este taller y su contenido fueron diseñados por el profesor **César Augusto Vega Fernández** como material académico para el curso *Testing y Validación de Software*, impartido en la **Maestría en Ingeniería de Software de la Universidad de La Sabana**.
+
+Su propósito es exclusivamente educativo y está orientado a fortalecer las competencias de los estudiantes en **TDD, AAA, Clases de Equivalencia, BDD** y validación de software en contextos de arquitectura limpia.
+
+---
+
+### Licencia de uso
+
+Este material se distribuye bajo la licencia [Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es).
+
+Puedes **usar, adaptar o compartir** este contenido con fines educativos, siempre que:
+
+1. Se reconozca la autoría del profesor **César Augusto Vega Fernández**.
+2. No se utilice con fines comerciales.
+3. Las obras derivadas se distribuyan bajo la misma licencia.
+
+---
+
+© Universidad de La Sabana – Facultad de Ingeniería  
+Maestría en Ingeniería de Software – 2025
