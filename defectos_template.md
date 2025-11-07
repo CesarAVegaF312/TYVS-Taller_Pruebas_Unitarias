@@ -7,6 +7,7 @@ Este documento sirve como plantilla para documentar defectos encontrados durante
 ## Formato 1: Lista detallada (narrativa)
 
 ### Defecto XX
+
 - **Caso de prueba**: ...
 - **Entrada**: ...
 - **Resultado esperado**: ...
@@ -25,6 +26,7 @@ Este documento sirve como plantilla para documentar defectos encontrados durante
 ---
 
 ## Convenciones de Estado
-- **Abierto** → El defecto aún no se corrige.  
-- **En progreso** → El defecto está siendo trabajado.  
-- **Resuelto** → El defecto fue corregido y validado con pruebas.  
+
+- **Abierto** → El defecto aún no se corrige.
+- **En progreso** → El defecto está siendo trabajado.
+- **Resuelto** → El defecto fue corregido y validado con pruebas.
