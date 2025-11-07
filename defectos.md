@@ -48,19 +48,21 @@ Cada defecto debe documentarse claramente para facilitar su análisis y correcci
 
 ## Formato 2: Tabla de defectos (bug tracking)
 
-| ID  | Caso de Prueba      | Entrada | Resultado Esperado | Resultado Obtenido | Causa Probable | Estado |
+| ID | Caso de Prueba | Entrada | Resultado Esperado | Resultado Obtenido | Causa Probable | Estado |
 |-----|---------------------|---------|--------------------|--------------------|----------------|--------|
-| 01  | Edad inválida       | `Person(id=101, age=-1, alive=true)` | `INVALID_AGE` | `VALID` | No se valida edad negativa | Abierto |
-| 02  | Persona muerta      | `Person(id=102, age=45, alive=false)` | `DEAD` | `VALID` | No se evalúa condición `alive=false` | Abierto |
-| 03  | Registro duplicado  | `Person(id=200, age=30, alive=true)` + `Person(id=200, age=25, alive=true)` | 1º → `VALID`  2º → `DUPLICATED` | 1º → `VALID`  2º → `VALID` | No hay verificación de `id` duplicado | Abierto |
+| 01 | Edad inválida | `Person(id=101, age=-1, alive=true)` | `INVALID_AGE` | `VALID` | No se valida edad negativa | Abierto |
+| 02 | Persona muerta | `Person(id=102, age=45, alive=false)` | `DEAD` | `VALID` | No se evalúa condición `alive=false` | Abierto |
+| 03 | Registro duplicado | `Person(id=200, age=30, alive=true)` + `Person(id=200, age=25, alive=true)` | 1º → `VALID` 2º → `DUPLICATED` | 1º → `VALID` 2º → `VALID` | No hay verificación de `id` duplicado | Abierto |
 
 ---
 
 ## Convenciones de Estado
 
-- **Abierto** → El defecto aún no se corrige.
-- **En progreso** → El defecto está siendo trabajado.
-- **Resuelto** → El defecto fue corregido y validado con pruebas.
+| Estado | Significado |
+|---------|-------------|
+| **Abierto** | El defecto fue detectado pero no corregido. |
+| **En progreso** | El defecto se encuentra en análisis o corrección. |
+| **Resuelto** | El defecto fue corregido y validado mediante pruebas. |
 
 ---
 

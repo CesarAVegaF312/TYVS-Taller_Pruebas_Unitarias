@@ -19,9 +19,9 @@ Este documento sirve como plantilla para documentar defectos encontrados durante
 
 ## Formato 2: Tabla de defectos (bug tracking)
 
-| ID  | Caso de Prueba | Entrada | Resultado Esperado | Resultado Obtenido | Causa Probable | Estado |
+| ID | Caso de Prueba | Entrada | Resultado Esperado | Resultado Obtenido | Causa Probable | Estado |
 |-----|----------------|---------|--------------------|--------------------|----------------|--------|
-| XX  | ...            | ...     | ...                | ...                | ...            | Abierto |
+| XX | ...            | ...     | ...                | ...                | ...            | Abierto |
 
 ---
 
