@@ -41,7 +41,7 @@ En el directorio de trabajo ejecutar el comando necesario para crear/generar un 
 
 ```yml
 Grupo (groupId): edu.unisabana.tyvs
-Artefacto (artifactId): clasesequivalencia
+Artefacto (artifactId): pruebasunitarias
 Paquete (package): edu.unisabana.tyvs.tdd
 archetypeArtifactId: maven-archetype-quickstart
 ```
@@ -597,6 +597,27 @@ Incluye **enlaces al código** (clases y tests) dentro de cada sección del Wiki
 - ¿Qué escenarios **no** se cubrieron y por qué?
 - ¿Qué defectos reales detectaron los tests?
 - ¿Cómo **mejorarías** la clase `Registry` para facilitar su prueba?
+
+### 10) Rúbrica – Taller de Pruebas Unitarias (Laboratorio Base)
+
+| **Criterios de evaluación** | **Indicadores de cumplimiento** | **Excelente (5 pts)** | **Bueno (4 pts)** | **Necesita mejorar (3.5 pts)** | **Deficiente (2.5 pts)** | **No cumple (0 pts)** |
+|------------------------------|---------------------------------|------------------------|--------------------|---------------------------------|---------------------------|------------------------|
+| **Estructura del proyecto** | El proyecto compila y ejecuta pruebas correctamente, con estructura de carpetas estándar y `.gitignore` configurado. | Proyecto completo, estructurado y funcional sin errores. | Compila con mínimas advertencias, estructura adecuada. | Estructura parcialmente correcta o errores menores en ejecución. | Problemas de ejecución o configuración. | No compila o no presenta estructura esperada. |
+| **Aplicación de TDD (Red → Green → Refactor)** **(vale por 2)** | Evidencia del ciclo iterativo de desarrollo basado en pruebas. | Presenta 3 o más iteraciones completas bien documentadas (Rojo–Verde–Refactor). | Se evidencian iteraciones, aunque con documentación parcial. | Solo una o dos iteraciones visibles, sin claridad en etapas. | TDD mencionado, pero no evidenciado en el código o README. | No aplica ni menciona TDD. |
+| **Patrón AAA (Arrange–Act–Assert)** | Claridad en la organización de los tests. | Todos los tests aplican AAA correctamente y con comentarios claros. | La mayoría sigue AAA con pequeñas inconsistencias. | Algunos tests no separan bien las fases. | Estructura confusa o sin orden AAA. | No se aplica AAA. |
+| **Clases de equivalencia y valores límite** | Identificación y cobertura de casos representativos. | Tabla completa, justificada y reflejada en los tests. | Tabla parcial o con pocos valores límite. | Algunos valores correctos, pero sin justificación. | Casos incompletos o poco claros. | No presenta tabla ni aplica esta técnica. |
+| **Escenarios BDD (Given–When–Then)** | Traducción de pruebas a lenguaje de negocio. | Escenarios coherentes, completos y equivalentes a los tests. | Escenarios claros pero incompletos o poco detallados. | Redacción poco precisa o sin conexión con el código. | Escenarios confusos o mal formulados. | No aplica BDD. |
+| **Cobertura de código (JaCoCo)** | Porcentaje de cobertura alcanzado. | ≥ 80% cobertura global y en dominio. | Entre 70% y 79% cobertura. | Entre 60% y 69%. | Menor al 60% o sin reporte. | No incluye reporte de cobertura. |
+| **Gestión de defectos** | Registro de defectos encontrados o simulados. | `defectos.md` completo, con análisis y estado. | Archivo presente, con defectos parciales o sin estado. | Registro incompleto o superficial. | Mención sin evidencia o formato incorrecto. | No presenta archivo de defectos. |
+| **Calidad del código** | Claridad, mantenibilidad y buenas prácticas. | Código limpio, nombres expresivos, sin duplicación. | Buen estilo con pequeñas omisiones. | Algunos errores de estilo o duplicación leve. | Código desordenado o poco legible. | Código inadecuado o incompleto. |
+| **Documentación y reflexión** | README o Wiki con explicaciones y aprendizajes. | Documentación completa con reflexión crítica. | Documentación clara pero sin análisis profundo. | Información incompleta o desorganizada. | Texto mínimo sin evidencia de comprensión. | Sin documentación. |
+
+| Rango de puntaje | Desempeño                                                |
+| ---------------- | -------------------------------------------------------- |
+| 45 – 50          | Excelente dominio técnico y metodológico.                |
+| 38 – 44          | Buen trabajo con documentación o cobertura parcial.      |
+| 30 – 37          | Cumple con lo básico pero sin profundidad.               |
+| < 30             | No cumple con los criterios mínimos del taller/proyecto. |
 
 ---
 
