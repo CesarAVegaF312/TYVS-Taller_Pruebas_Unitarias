@@ -6,11 +6,11 @@ Este taller adapta el enfoque clásico de **TDD** (Red → Green → Refactor) a
 
 ## 🎯 Objetivos del taller
 
-- Diseñar pruebas unitarias que ejerciten **reglas de negocio** (dominio) de forma **aislada**.  
-- Aplicar TDD: **primero la prueba**, luego la implementación mínima, y **refactor** continuo.  
-- Mantener **dependencias hacia adentro**: el dominio **no** conoce bases de datos, HTTP ni librerías externas.  
-- Escribir pruebas siguiendo el patrón **AAA (Arrange – Act – Assert)** para mejorar legibilidad y mantenibilidad.  
-- Definir **clases de equivalencia y valores límite** que permitan cubrir escenarios válidos, inválidos y bordes con un número mínimo de pruebas.  
+- Diseñar pruebas unitarias que ejerciten **reglas de negocio** (dominio) de forma **aislada**.
+- Aplicar TDD: **primero la prueba**, luego la implementación mínima, y **refactor** continuo.
+- Mantener **dependencias hacia adentro**: el dominio **no** conoce bases de datos, HTTP ni librerías externas.
+- Escribir pruebas siguiendo el patrón **AAA (Arrange – Act – Assert)** para mejorar legibilidad y mantenibilidad.
+- Definir **clases de equivalencia y valores límite** que permitan cubrir escenarios válidos, inválidos y bordes con un número mínimo de pruebas.
 - Expresar pruebas con **BDD (Given–When–Then)** para alinear el código con el lenguaje de negocio y asegurar trazabilidad entre requisitos y validación.
 
 ---
@@ -60,7 +60,7 @@ Busque el artefacto JUnit y entre a la versión más nueva.
 
 #### ⚠️ Nota sobre ubicación de archivos
 
-Ingresar directamente a ["2. Junit"](https://mvnrepository.com/artifact/junit/junit).  
+Ingresar directamente a ["2. Junit"](https://mvnrepository.com/artifact/junit/junit).
 
 Ingrese a la pestaña de Maven y haga click en el texto de la dependencia para copiarlo al portapapeles.
 
@@ -336,7 +336,7 @@ mvn clean test
 
 ---
 
-Revise cuál es la diferencia.  
+Revise cuál es la diferencia.
 Tip: [Maven Lifecycle Phases](https://www.devopsschool.com/blog/maven-tutorials-maven-lifecycle-phases-goal).
 
 ---
@@ -463,7 +463,7 @@ Ejemplo:
 
 ### 2. Cobertura de código
 
-Agrega **JaCoCo** para medir cobertura.  
+Agrega **JaCoCo** para medir cobertura.
 Este plugin debe incluirse dentro de la sección `<build><plugins> ... </plugins></build>` del archivo `pom.xml`.
 
 ```xml
@@ -554,7 +554,7 @@ Crea un archivo `defectos.md` para documentar fallos:
 
 ## 6. Automatización e integración (Opcional)
 
-- Ejecuta las pruebas unitarias en cada commit con CI (GitHub Actions, Jenkins, GitLab CI).  
+- Ejecuta las pruebas unitarias en cada commit con CI (GitHub Actions, Jenkins, GitLab CI).
 - Rechaza merges si `mvn test` falla.
 
 🎓 Esta guía presenta el proceso para la creación y configuración de flujos de Integración Continua (CI) utilizando GitHub Actions.
@@ -573,7 +573,7 @@ Puedes consultarla en el siguiente enlace: [**Taller de Integración Continua en
 
 ### 2) Documentación en Wiki (obligatoria)
 
-> Toda la documentación del taller se entrega en el **Wiki del mismo repositorio**.  
+> Toda la documentación del taller se entrega en el **Wiki del mismo repositorio**.
 > No es necesario PDF. El Wiki es el documento oficial de entrega.
 
 Estructura mínima sugerida del Wiki:
@@ -660,7 +660,7 @@ Incluye **enlaces al código** (clases y tests) dentro de cada sección del Wiki
 
 En este taller aplicamos distintas estrategias de **pruebas unitarias** que permiten desarrollar software más confiable, claro y alineado con las reglas de negocio.
 
-A través del caso `Registry`, aplicamos los principios de **Testing y Validación de Software** dentro de una arquitectura limpia, aprendiendo a construir pruebas automatizadas de manera incremental y documentada.  
+A través del caso `Registry`, aplicamos los principios de **Testing y Validación de Software** dentro de una arquitectura limpia, aprendiendo a construir pruebas automatizadas de manera incremental y documentada.
 El objetivo es que, una vez comprendido el flujo de trabajo, puedan **replicar el mismo proceso en su propio dominio de proyecto**.
 
 ### 🧩 Cómo usar esta guía para tu proyecto
@@ -677,7 +677,7 @@ El objetivo es que, una vez comprendido el flujo de trabajo, puedan **replicar e
    - Resultados de cobertura (JaCoCo) con análisis de métricas.
    - Conclusiones sobre el valor del enfoque TDD en tu proyecto.
 
-> 🎯 **Resultado esperado:**  
+> 🎯 **Resultado esperado:**
 > Al finalizar, cada estudiante o equipo tendrá un proyecto con **pruebas unitarias sólidas**, cobertura mínima del **80%**, y una documentación técnica clara que refleje la aplicación práctica de los conceptos de **TDD, AAA, Clases de Equivalencia y BDD**.
 
 ---
@@ -688,42 +688,42 @@ El objetivo es que, una vez comprendido el flujo de trabajo, puedan **replicar e
 
 ## 🔴🟢🔵 TDD (Test-Driven Development)
 
-- **Qué es:** ciclo de desarrollo *Red → Green → Refactor* en el que primero se escribe una prueba que falla, luego se implementa el código mínimo para que pase y finalmente se refactoriza.  
-- **Para qué sirve:** garantiza que el código se construya guiado por pruebas desde el inicio, evitando errores tempranos y facilitando el diseño incremental.  
+- **Qué es:** ciclo de desarrollo *Red → Green → Refactor* en el que primero se escribe una prueba que falla, luego se implementa el código mínimo para que pase y finalmente se refactoriza.
+- **Para qué sirve:** garantiza que el código se construya guiado por pruebas desde el inicio, evitando errores tempranos y facilitando el diseño incremental.
 
 ---
 
 ## 🧩 Patrón AAA (Arrange – Act – Assert)
 
-- **Qué es:** forma de estructurar cada prueba en tres pasos:  
-  - **Arrange:** preparar los datos y objetos necesarios.  
-  - **Act:** ejecutar el método o acción bajo prueba.  
-  - **Assert:** verificar que el resultado sea el esperado.  
-- **Para qué sirve:** hace que las pruebas sean más legibles, claras y fáciles de mantener, al separar explícitamente la preparación, la acción y la verificación.  
+- **Qué es:** forma de estructurar cada prueba en tres pasos:
+  - **Arrange:** preparar los datos y objetos necesarios.
+  - **Act:** ejecutar el método o acción bajo prueba.
+  - **Assert:** verificar que el resultado sea el esperado.
+- **Para qué sirve:** hace que las pruebas sean más legibles, claras y fáciles de mantener, al separar explícitamente la preparación, la acción y la verificación.
 
 ---
 
 ## 🧮 Clases de Equivalencia y Valores Límite
 
-- **Qué es:** técnica de diseño de pruebas que agrupa las entradas posibles en clases que se comportan de la misma forma, y selecciona valores representativos (incluyendo bordes).  
-- **Para qué sirve:** reduce la cantidad de pruebas necesarias sin perder cobertura lógica, asegurando que se validen casos normales, inválidos y extremos donde suelen ocurrir errores.  
+- **Qué es:** técnica de diseño de pruebas que agrupa las entradas posibles en clases que se comportan de la misma forma, y selecciona valores representativos (incluyendo bordes).
+- **Para qué sirve:** reduce la cantidad de pruebas necesarias sin perder cobertura lógica, asegurando que se validen casos normales, inválidos y extremos donde suelen ocurrir errores.
 
 ---
 
 ## 🤝 BDD (Behavior Driven Development)
 
-- **Qué es:** forma de expresar pruebas en un lenguaje cercano al negocio usando narrativa **Given – When – Then (Dado – Cuando – Entonces)**.  
-- **Para qué sirve:** conecta las reglas de negocio con la validación automatizada, facilitando la comunicación entre desarrolladores, analistas y usuarios, y asegurando que las pruebas reflejen el comportamiento esperado del sistema.  
+- **Qué es:** forma de expresar pruebas en un lenguaje cercano al negocio usando narrativa **Given – When – Then (Dado – Cuando – Entonces)**.
+- **Para qué sirve:** conecta las reglas de negocio con la validación automatizada, facilitando la comunicación entre desarrolladores, analistas y usuarios, y asegurando que las pruebas reflejen el comportamiento esperado del sistema.
 
 ---
 
 ## Conclusión
 
-En conjunto, estas prácticas permiten:  
+En conjunto, estas prácticas permiten:
 
 - Desarrollar código guiado por reglas de negocio (**TDD + BDD**).
-- Escribir pruebas claras y mantenibles (**AAA**).  
-- Diseñar casos de prueba robustos que cubren diferentes escenarios (**clases de equivalencia y valores límite**).  
+- Escribir pruebas claras y mantenibles (**AAA**).
+- Diseñar casos de prueba robustos que cubren diferentes escenarios (**clases de equivalencia y valores límite**).
 
 Esto fortalece la **calidad del software**, mejora la **trazabilidad de los requisitos** y fomenta un desarrollo **iterativo y seguro**.
 
@@ -762,5 +762,5 @@ Puedes **usar, adaptar o compartir** este contenido con fines educativos, siempr
 
 ---
 
-© Universidad de La Sabana – Facultad de Ingeniería  
+© Universidad de La Sabana – Facultad de Ingeniería
 Maestría en Ingeniería de Software – 2025
