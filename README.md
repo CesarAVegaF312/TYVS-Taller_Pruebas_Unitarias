@@ -539,37 +539,64 @@ Crea un archivo `defectos.md` para documentar fallos:
 
 ## PARA ENTREGAR CON ESTE TALLER
 
-- Repositorio Git con el proyecto y la URL de entrega.
-- Archivo `.gitignore` (excluir `target`, archivos del IDE, etc.).
-- Integrantes (archivo integrantes.txt o sección en el README).
-- README con:
-  - Instrucciones para compilar y correr pruebas (mvn clean test).
-  - Descripción breve del dominio y reglas validadas.
-  - Breve explicación de **TDD (Red → Green → Refactor)** y **AAA** aplicada en el proyecto.
-- Pruebas unitarias:
-  - ≥ 5 Clases de equivalencia y escenarios BDD.
-  - Todas las pruebas escritas con **AAA (Arrange–Act–Assert)**.
-- Nomenclatura clara de métodos (`should…`), y un solo assert principal por test (o varios con misma intención).
-- Cobertura:
-  - Reporte **JaCoCo** adjunto (carpeta `target/site/jacoco/` o captura).
-  - ≥ 80% de cobertura global y ≥ 80% en el paquete …tdd.registry (si aplica).
-- Evidencia de TDD:
-  - Breve sección **“Historia TDD”** en el README indicando al menos 3 iteraciones: prueba nueva (Rojo) → cambio mínimo (Verde) → refactor (mantener Verde).
-  - Opcional: capturas o mensajes de commit que reflejen el ciclo (e.g., `test: add dead person rule (RED)`, `feat: minimal check alive (GREEN)`, `refactor: extract constants (REFACTOR)`).
-- Matriz de pruebas:
-  - Tabla con **clases de equivalencia** y **valores límite**: entradas, resultado esperado y test que lo cubre (nombre del método).
-- Gestión de defectos:
-  - Archivo `defectos.md` con al menos **1 defecto** real encontrado o simulado: caso, esperado vs. obtenido, causa probable, estado (Abierto/Cerrado).
-- Calidad del código:
-  - Constantes extraídas (p. ej., `MIN_AGE`, `MAX_AGE`).
-  - Sin **“código muerto”**, sin duplicación evidente en pruebas o producción.
-  - Comentarios mínimos y expresivos; preferir nombres autoexplicativos.
-- Ejecución reproducible:
-  - Proyecto Maven ejecutable con `mvn clean test` sin pasos manuales adicionales.
-- Reflexiona sobre:
-  - ¿Qué escenarios no se cubrieron?
-  - ¿Qué defectos reales detectaron los tests?
-  - ¿Cómo mejorarías la clase `Registry` para facilitar su prueba?
+### 1) Repositorio
+- **Repositorio Git** con el proyecto y **URL de acceso público** (o invitación).
+- Archivo **`.gitignore`** (excluir `target/`, archivos del IDE, etc.).
+- Archivo **`integrantes.txt`** o sección en el README con nombres completos.
+- **Rama principal compilable**: `mvn clean test` sin pasos manuales adicionales.
+
+### 2) Documentación en Wiki (obligatoria)
+> Toda la documentación del taller se entrega en el **Wiki del mismo repositorio**.  
+> No es necesario PDF. El Wiki es el documento oficial de entrega.
+
+Estructura mínima sugerida del Wiki:
+- **Inicio**: resumen del dominio, alcance del taller y equipo.
+- **TDD (Red → Green → Refactor)**: al menos 3 iteraciones mas con breve “historia TDD”.
+- **Patrón AAA**: ejemplo de test con Arrange–Act–Assert y pautas usadas.
+- **Clases de Equivalencia y Valores Límite**: tabla + justificación de los bordes.
+- **BDD (Given–When–Then)**: escenarios clave.
+- **Resultados**: cobertura (capturas JaCoCo) y conclusiones técnicas.
+
+Incluye **enlaces al código** (clases y tests) dentro de cada sección del Wiki.
+
+### 3) Pruebas unitarias (dominio puro)
+- Al menos **5 clases de equivalencia** cubiertas y **escenarios BDD** correspondientes.
+- Todas las pruebas escritas con **AAA (Arrange–Act–Assert)**.
+- Nomenclatura clara de métodos de prueba (`should…When…()`).
+- Tests en `src/test/java` **mismo paquete** que la clase probada.
+
+### 4) Cobertura (JaCoCo)
+- Reporte **JaCoCo** generado en `target/site/jacoco/index.html`.
+- **≥ 80%** cobertura **global** (y ≥ 80% en el paquete de dominio).
+- Adjuntar **capturas** en el Wiki y comentar brevemente qué líneas quedaron sin cubrir y por qué.
+
+### 5) Evidencia de TDD
+- Sección **“Historia TDD”** en el Wiki con 3+ ciclos:
+  - **Rojo**: prueba nueva que falla.
+  - **Verde**: cambio mínimo para que pase.
+  - **Refactor**: mejora manteniendo verde.
+- (Opcional) Mensajes de commit ilustrativos:
+  - `test: add dead person rule (RED)`
+  - `feat: minimal check alive (GREEN)`
+  - `refactor: extract constants (REFACTOR)`
+
+### 6) Matriz de pruebas
+- Tabla con **clases de equivalencia** y **valores límite**:
+  - **Entrada representativa**, **Resultado esperado**, **test que lo cubre** (nombre del método).
+
+### 7) Gestión de defectos
+- Archivo **`defectos.md`**:
+  - Al menos **1 defecto** (real o simulado): caso, esperado vs. obtenido, causa probable, estado (Abierto/Cerrado).
+
+### 8) Calidad del código
+- Constantes extraídas (ej.: `MIN_AGE`, `MAX_AGE`).
+- Sin **código muerto** ni duplicación obvia.
+- Nombrado autoexplicativo y comentarios mínimos pero útiles.
+
+### 9) Reflexión final (en el Wiki)
+- ¿Qué escenarios **no** se cubrieron y por qué?
+- ¿Qué defectos reales detectaron los tests?
+- ¿Cómo **mejorarías** la clase `Registry` para facilitar su prueba?
 
 ---
 
