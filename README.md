@@ -537,7 +537,7 @@ La siguiente tabla combina los nombres de los tests unitarios (estilo técnico e
 
 ---
 
-## 4. Gestión de defectos
+## 5. Gestión de defectos
 
 Crea un archivo `defectos.md` para documentar fallos:
 
@@ -552,10 +552,13 @@ Crea un archivo `defectos.md` para documentar fallos:
 
 ---
 
-## 5. Automatización e integración (Opcional)
+## 6. Automatización e integración (Opcional)
 
 - Ejecuta las pruebas unitarias en cada commit con CI (GitHub Actions, Jenkins, GitLab CI).  
 - Rechaza merges si `mvn test` falla.
+
+🎓 Esta guía presenta el proceso para la creación y configuración de flujos de Integración Continua (CI) utilizando GitHub Actions.
+Puedes consultarla en el siguiente enlace: [**Taller de Integración Continua en GitHub**](https://github.com/CesarAVegaF312/DAYS-Integracion_continua/tree/main/github).
 
 ---
 
