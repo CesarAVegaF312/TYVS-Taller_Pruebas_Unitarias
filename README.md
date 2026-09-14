@@ -4,7 +4,7 @@ Este taller adapta el enfoque clásico de **TDD** (Red → Green → Refactor) a
 
 ---
 
-## 🎯 Objetivos del taller
+## Objetivos del taller
 
 - Diseñar pruebas unitarias que ejerciten **reglas de negocio** (dominio) de forma **aislada**.
 - Aplicar TDD: **primero la prueba**, luego la implementación mínima, y **refactor** continuo.
@@ -15,7 +15,7 @@ Este taller adapta el enfoque clásico de **TDD** (Red → Green → Refactor) a
 
 ---
 
-## 📑 Índice
+## Índice
 
 - [Pruebas unitarias básicas](#pruebas-unitarias-básicas)
 - [Ejercicio](#ejercicio-registraduría)
@@ -51,7 +51,7 @@ Paquete (package): edu.unisabana.tyvs.tdd
 archetypeArtifactId: maven-archetype-quickstart
 ```
 
-🎓 Si necesitas más ayuda con la creación de proyectos en Maven, revisa el [**Taller de Nivelación**](https://github.com/CesarAVegaF312/DYAS-Taller_nivelacion).
+Si necesitas más ayuda con la creación de proyectos en Maven, revisa el [**Taller de Nivelación**](https://github.com/CesarAVegaF312/DYAS-Taller_nivelacion).
 
 ---
 
@@ -63,7 +63,7 @@ Busque el artefacto JUnit y entre a la versión más nueva.
 
 ![Captura de pantalla del repositorio Maven](img/repo.png)
 
-#### ⚠️ Nota sobre ubicación de archivos
+#### Nota sobre ubicación de archivos
 
 Ingresar directamente a ["JUnit Jupiter (Aggregator)"](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter).
 
@@ -185,7 +185,7 @@ package edu.unisabana.tyvs.domain.model;
 public enum RegisterResult { VALID, DUPLICATED, INVALID }
 ```
 
-> 📌 **El enum va a crecer.** Empezamos solo con los tres valores que necesita la primera iteración. `DEAD`, `UNDERAGE` e `INVALID_AGE` se agregan más adelante, en la iteración de TDD que los necesita. Agregar constantes "por si acaso" antes de tener una prueba que las exija va en contra del ciclo Red → Green → Refactor.
+> **El enum va a crecer.** Empezamos solo con los tres valores que necesita la primera iteración. `DEAD`, `UNDERAGE` e `INVALID_AGE` se agregan más adelante, en la iteración de TDD que los necesita. Agregar constantes "por si acaso" antes de tener una prueba que las exija va en contra del ciclo Red → Green → Refactor.
 
 Cree el archivo `Gender.java` en el paquete `edu.unisabana.tyvs.domain.model` con la enumeración:
 
@@ -237,7 +237,7 @@ public class Registry {
 }
 ```
 
-> ⚠️ **Por qué lanzamos una excepción y no `return RegisterResult.VALID;`**
+> **Por qué lanzamos una excepción y no `return RegisterResult.VALID;`**
 > Si el esqueleto ya devolviera `VALID`, la primera prueba pasaría de inmediato y **nunca veríamos la barra roja**. En TDD el rojo no es un accidente: es la evidencia de que la prueba realmente ejercita el código y de que puede fallar. Una prueba que jamás ha estado en rojo no prueba nada.
 
 ---
@@ -285,9 +285,9 @@ En el diseño de pruebas unitarias se recomienda estructurar cada método de pru
 
 - Se verifican los resultados obtenidos frente a lo esperado.
 
-#### ⚠️ Nota importante
+#### Nota importante
 
-✅ Este patrón mejora la legibilidad y mantenibilidad de las pruebas porque:
+Este patrón mejora la legibilidad y mantenibilidad de las pruebas porque:
 
 - Hace evidente qué se está preparando, qué se está probando y qué se está validando.
 - Facilita que otros desarrolladores entiendan rápidamente el propósito de cada prueba.
@@ -334,17 +334,17 @@ public class RegistryTest {
 }
 ```
 
-Ejecute `mvn clean test`. La prueba **falla** con `UnsupportedOperationException`: esa es la barra roja. 🔴
+Ejecute `mvn clean test`. La prueba **falla** con `UnsupportedOperationException`: esa es la barra roja.
 
 ---
 
-#### ⚠️ Nota importante sobre ubicación del `pom.xml`
+#### Nota importante sobre ubicación del `pom.xml`
 
 Recuerde ejecutar todos los comandos Maven desde la carpeta **raíz del proyecto**, donde se encuentra el archivo `pom.xml`.
 
 ---
 
-#### 🧪 Ejercicio: `compile` vs. `test`
+#### Ejercicio: `compile` vs. `test`
 
 Ejecute **primero**:
 
@@ -360,7 +360,7 @@ mvn clean test
 
 Compare las dos salidas. En este momento su prueba está en rojo, y sin embargo `mvn clean compile` reporta **`BUILD SUCCESS`**. ¿Por qué? ¿Cuál de los dos comandos ejecutó realmente las pruebas?
 
-> ⚠️ **Cuidado**: `mvn compile` **no ejecuta las pruebas**, solo compila el código de `src/main`. Si usa `compile` para "verificar" su trabajo, verá `BUILD SUCCESS` aunque todas sus pruebas estén fallando. Para correr las pruebas use **`mvn test`**.
+> **Cuidado**: `mvn compile` **no ejecuta las pruebas**, solo compila el código de `src/main`. Si usa `compile` para "verificar" su trabajo, verá `BUILD SUCCESS` aunque todas sus pruebas estén fallando. Para correr las pruebas use **`mvn test`**.
 
 Tip: [Maven Lifecycle Phases](https://www.devopsschool.com/blog/maven-tutorials-maven-lifecycle-phases-goal).
 
@@ -376,7 +376,7 @@ Reemplace la excepción por el mínimo código que hace pasar la prueba:
     }
 ```
 
-Ejecute `mvn clean test`: barra verde. 🟢
+Ejecute `mvn clean test`: barra verde.
 
 Sí, es "hacer trampa": el método devuelve `VALID` para *cualquier* entrada. Eso es correcto en TDD. La implementación solo debe ser tan general como lo exijan las pruebas que existen; será la **siguiente** prueba la que obligue a generalizarla.
 
@@ -413,7 +413,7 @@ Agregue esta prueba a `RegistryTest`:
 
 ```
 
-La prueba **no compila**: `RegisterResult.DEAD` todavía no existe. Un error de compilación en la prueba también es rojo 🔴 — es la señal de que el dominio necesita crecer.
+La prueba **no compila**: `RegisterResult.DEAD` todavía no existe. Un error de compilación en la prueba también es rojo — es la señal de que el dominio necesita crecer.
 
 ### 2.2 GREEN: implementación mínima
 
@@ -431,7 +431,7 @@ if (!p.isAlive()) return RegisterResult.DEAD;
 
 ```
 
-Barra verde otra vez. 🟢
+Barra verde otra vez.
 
 ### 2.3 REFACTOR
 
@@ -479,13 +479,13 @@ public class RegistryTest {
 }
 ```
 
-Ejecutar y validar nuevamente el resultado: las dos pruebas siguen en verde. 🟢
+Ejecutar y validar nuevamente el resultado: las dos pruebas siguen en verde.
 
-> 🛑 **Aquí termina la parte guiada.** Este es exactamente el estado en el que encuentra el código en este repositorio (`registraduria/`). Las iteraciones 3 en adelante — id inválido, edad y duplicados — las construye usted, con el mismo ciclo Red → Green → Refactor. Las secciones siguientes le dan las clases de equivalencia y los escenarios BDD que debe cubrir.
+> **Aquí termina la parte guiada.** Este es exactamente el estado en el que encuentra el código en este repositorio (`registraduria/`). Las iteraciones 3 en adelante — id inválido, edad y duplicados — las construye usted, con el mismo ciclo Red → Green → Refactor. Las secciones siguientes le dan las clases de equivalencia y los escenarios BDD que debe cubrir.
 
 ---
 
-### 💡 Pista para la regla de duplicados (R6)
+### Pista para la regla de duplicados (R6)
 
 `Registry` como está no puede detectar duplicados: **no tiene memoria**. Va a necesitar guardar los `id` ya registrados, por ejemplo:
 
@@ -633,7 +633,7 @@ void todoMenorDeEdadEsRechazado(@ForAll @IntRange(min = 0, max = 17) int edad) {
 void todoAdultoValidoSeRegistra(@ForAll @IntRange(min = 18, max = 120) int edad) { ... }
 ```
 
-> ⚠️ **Cuándo NO usar property-based.** No reemplaza a las pruebas por ejemplo, las complementa. Los ejemplos concretos documentan el comportamiento esperado y se leen como especificación; las propiedades exploran. Un caso de negocio importante merece **ambas**: una propiedad que cubre el rango y un ejemplo nombrado que explica por qué ese rango importa.
+> **Cuándo NO usar property-based.** No reemplaza a las pruebas por ejemplo, las complementa. Los ejemplos concretos documentan el comportamiento esperado y se leen como especificación; las propiedades exploran. Un caso de negocio importante merece **ambas**: una propiedad que cubre el rango y un ejemplo nombrado que explica por qué ese rango importa.
 
 ---
 
@@ -663,7 +663,7 @@ Ejemplo:
 
 Agrega **JaCoCo** para medir cobertura.
 
-⚠️ Pegue **solo el elemento `<plugin>`** que aparece abajo, dentro del `<build><plugins>` que su `pom.xml` **ya tiene** (junto a `maven-surefire-plugin`). No cree una segunda sección `<build>`: Maven fallará con `Duplicated tag: 'build'`.
+Pegue **solo el elemento `<plugin>`** que aparece abajo, dentro del `<build><plugins>` que su `pom.xml` **ya tiene** (junto a `maven-surefire-plugin`). No cree una segunda sección `<build>`: Maven fallará con `Duplicated tag: 'build'`.
 
 ```xml
         <!-- (Opcional pero recomendado) JaCoCo para cobertura -->
@@ -711,7 +711,7 @@ mvn jacoco:report
 
 Revisa el archivo `target/site/jacoco/index.html`.
 
-> 📊 **Referencia**: con las pruebas de las iteraciones 1 y 2, la cobertura global arranca en **~89%**. Al completar las clases de equivalencia que faltan debería superar el 95%.
+> **Referencia**: con las pruebas de las iteraciones 1 y 2, la cobertura global arranca en **~89%**. Al completar las clases de equivalencia que faltan debería superar el 95%.
 
 ---
 
@@ -803,7 +803,7 @@ Person.getGender() -> reemplazar el retorno por null
 
 Ninguna prueba los mata porque el `Registry` de la iteración 2 **solo llama a `isAlive()`**. Los demás getters se ejecutan al construir el objeto —por eso JaCoCo los cuenta como cubiertos— pero su valor nunca influye en ningún resultado verificado.
 
-> 🎯 **Lo interesante**: esos mutantes van a morir solos a medida que usted implemente las reglas que faltan. Cuando `registerVoter` consulte la edad, un `getAge()` que devuelva `0` romperá la prueba de `UNDERAGE`. **El mutation score mide el avance real de su TDD**, no cuántas líneas tocó.
+> **Lo interesante**: esos mutantes van a morir solos a medida que usted implemente las reglas que faltan. Cuando `registerVoter` consulte la edad, un `getAge()` que devuelva `0` romperá la prueba de `UNDERAGE`. **El mutation score mide el avance real de su TDD**, no cuántas líneas tocó.
 
 #### Reflexión para el Wiki
 
@@ -865,7 +865,7 @@ Crea un archivo `defectos.md` para documentar fallos:
 - Ejecuta las pruebas unitarias en cada commit con CI (GitHub Actions, Jenkins, GitLab CI).
 - Rechaza merges si `mvn test` falla.
 
-🎓 Esta guía presenta el proceso para la creación y configuración de flujos de Integración Continua (CI) utilizando GitHub Actions.
+Esta guía presenta el proceso para la creación y configuración de flujos de Integración Continua (CI) utilizando GitHub Actions.
 Puedes consultarla en el siguiente enlace: [**Taller de Integración Continua en GitHub**](https://github.com/CesarAVegaF312/DAYS-Integracion_continua/tree/main/github).
 
 ---
@@ -879,7 +879,7 @@ Puedes consultarla en el siguiente enlace: [**Taller de Integración Continua en
 - Archivo **`integrantes.txt`** o sección en el README con nombres completos.
 - **Rama principal compilable**: `mvn clean test` sin pasos manuales adicionales.
 
-> ⚠️ **Verifique que el código quedó realmente versionado.** Un `.gitignore` demasiado amplio (por ejemplo `registraduria` en vez de `registraduria/target/`) puede excluir todo su proyecto sin dar ningún error. Compruébelo antes de entregar:
+> **Verifique que el código quedó realmente versionado.** Un `.gitignore` demasiado amplio (por ejemplo `registraduria` en vez de `registraduria/target/`) puede excluir todo su proyecto sin dar ningún error. Compruébelo antes de entregar:
 >
 > ```sh
 > git ls-files            # deben aparecer sus .java y el pom.xml
@@ -994,14 +994,14 @@ Incluye **enlaces al código** (clases y tests) dentro de cada sección del Wiki
 
 ---
 
-## 🧭 Propósito del taller
+## Propósito del taller
 
 En este taller aplicamos distintas estrategias de **pruebas unitarias** que permiten desarrollar software más confiable, claro y alineado con las reglas de negocio.
 
 A través del caso `Registry`, aplicamos los principios de **Testing y Validación de Software** dentro de una arquitectura limpia, aprendiendo a construir pruebas automatizadas de manera incremental y documentada.
 El objetivo es que, una vez comprendido el flujo de trabajo, puedan **replicar el mismo proceso en su propio dominio de proyecto**.
 
-### 🧩 Cómo usar esta guía para tu proyecto
+### Cómo usar esta guía para tu proyecto
 
 1. **Estudia los ejemplos del taller:** revisa la estructura del código, las pruebas y los comentarios paso a paso.
 2. **Replica el flujo TDD (Red → Green → Refactor)** en tu proyecto, adaptando las reglas de negocio a tu propio contexto.
@@ -1015,19 +1015,19 @@ El objetivo es que, una vez comprendido el flujo de trabajo, puedan **replicar e
    - Resultados de cobertura (JaCoCo) con análisis de métricas.
    - Conclusiones sobre el valor del enfoque TDD en tu proyecto.
 
-> 🎯 **Resultado esperado:**
+> **Resultado esperado:**
 > Al finalizar, cada estudiante o equipo tendrá un proyecto con **pruebas unitarias sólidas**, cobertura mínima del **80%**, y una documentación técnica clara que refleje la aplicación práctica de los conceptos de **TDD, AAA, Clases de Equivalencia y BDD**.
 
 ---
 
 ## Hagamos un resumen
 
-### 🔴🟢🔵 TDD (Test-Driven Development)
+### TDD (Test-Driven Development)
 
 - **Qué es:** ciclo de desarrollo *Red → Green → Refactor* en el que primero se escribe una prueba que falla, luego se implementa el código mínimo para que pase y finalmente se refactoriza.
 - **Para qué sirve:** garantiza que el código se construya guiado por pruebas desde el inicio, evitando errores tempranos y facilitando el diseño incremental.
 
-### 🧩 Patrón AAA (Arrange – Act – Assert)
+### Patrón AAA (Arrange – Act – Assert)
 
 - **Qué es:** forma de estructurar cada prueba en tres pasos:
   - **Arrange:** preparar los datos y objetos necesarios.
@@ -1035,12 +1035,12 @@ El objetivo es que, una vez comprendido el flujo de trabajo, puedan **replicar e
   - **Assert:** verificar que el resultado sea el esperado.
 - **Para qué sirve:** hace que las pruebas sean más legibles, claras y fáciles de mantener, al separar explícitamente la preparación, la acción y la verificación.
 
-### 🧮 Clases de Equivalencia y Valores Límite
+### Clases de Equivalencia y Valores Límite
 
 - **Qué es:** técnica de diseño de pruebas que agrupa las entradas posibles en clases que se comportan de la misma forma, y selecciona valores representativos (incluyendo bordes).
 - **Para qué sirve:** reduce la cantidad de pruebas necesarias sin perder cobertura lógica, asegurando que se validen casos normales, inválidos y extremos donde suelen ocurrir errores.
 
-### 🤝 BDD (Behavior Driven Development)
+### BDD (Behavior Driven Development)
 
 - **Qué es:** forma de expresar pruebas en un lenguaje cercano al negocio usando narrativa **Given – When – Then (Dado – Cuando – Entonces)**.
 - **Para qué sirve:** conecta las reglas de negocio con la validación automatizada, facilitando la comunicación entre desarrolladores, analistas y usuarios, y asegurando que las pruebas reflejen el comportamiento esperado del sistema.
