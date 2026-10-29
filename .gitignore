@@ -16,3 +16,6 @@ registraduria/target/
 target/
 
 *.ini
+
+# Base de datos de jqwik: se regenera en cada ejecucion de las pruebas de propiedades
+.jqwik-database
