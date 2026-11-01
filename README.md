@@ -886,6 +886,8 @@ Puedes consultarla en el siguiente enlace: [**Taller de Integración Continua en
 
 ## PARA ENTREGAR CON ESTE TALLER
 
+> **Ejercicio y proyecto.** Lo que pide esta sección es el **ejercicio** de la unidad 3 y se entrega sobre la Registraduría. Las mismas técnicas (TDD, AAA, clases de equivalencia, BDD, cobertura) se aplican después a las reglas del **caso de su equipo** en el [Proyecto de Pruebas Unitarias](https://github.com/CesarAVegaF312/TYVS-Proyecto_Pruebas_Unitarias), que es la entrega del proyecto. Las fichas del [catálogo de casos](https://github.com/CesarAVegaF312/TYVS-Proyecto_Pruebas_Unitarias/blob/master/casos/README.md) tienen la misma estructura que la Registraduría: lo que haga aquí se traslada paso a paso.
+
 ### 1) Repositorio
 
 - **Repositorio Git** con el proyecto y **URL de acceso público** (o invitación).
